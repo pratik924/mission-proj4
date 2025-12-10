@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import in.co.rasy.proj4.bean.UserBean;
+import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.model.UserModel;

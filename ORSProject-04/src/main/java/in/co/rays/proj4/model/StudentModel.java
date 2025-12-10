@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.co.rasy.proj4.bean.CollegeBean;
-import in.co.rasy.proj4.bean.StudentBean;
+import in.co.rays.proj4.bean.CollegeBean;
+import in.co.rays.proj4.bean.StudentBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.utill.JDBCDataSource;

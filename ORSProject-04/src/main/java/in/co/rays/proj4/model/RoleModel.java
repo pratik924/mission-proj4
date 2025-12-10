@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.co.rasy.proj4.bean.RoleBean;
+import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DataBaseException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
