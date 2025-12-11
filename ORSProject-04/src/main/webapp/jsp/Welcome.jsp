@@ -12,5 +12,6 @@
 		<h1 align="center" style="color: red;">Welcome to my online result
 			system</h1>
 	</div>
+	<%@ include file="Footer.jsp" %>
 </body>
 </html>

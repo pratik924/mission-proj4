@@ -32,16 +32,16 @@
 				<tr>
 					<th>Name</th>
 					<td><input type="text" name="name"
-						value="<%=DataUtility.getString(bean.getName())%>"
-						placeholder="enter your rolenName"></td>
+						value="<%=DataUtility.getStringData(bean.getName())%>"
+						placeholder="enter your role Name"></td>
 					<td><font color="red"><%=ServletUtility.getErrorMessage("name", request)%></font></td>
 				</tr>
 				<tr>
-					<th>Discription</th>
-					<td><input type="text" name="discription"
+					<th>Description</th>
+					<td><input type="text" name="description"
 						value="<%=DataUtility.getStringData(bean.getDescription())%>"
-						placeholder="enter your rolenName"></td>
-					<td><font color="red"><%=ServletUtility.getErrorMessage("name", request)%></font></td>
+						placeholder="enter your role Name"></td>
+					<td><font color="red"><%=ServletUtility.getErrorMessage("description", request)%></font></td>
 				</tr>
 				<tr>
 					<th></th>
@@ -51,6 +51,10 @@
 			</table>
 		</div>
 	</form>
+		
+	
 
 </body>
+<%@ include file="Footer.jsp" %>
+
 </html>

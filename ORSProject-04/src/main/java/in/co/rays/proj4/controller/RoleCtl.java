@@ -13,6 +13,7 @@ import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.model.RoleModel;
 import in.co.rays.proj4.utill.DataUtility;
+import in.co.rays.proj4.utill.DataValidator;
 import in.co.rays.proj4.utill.ServletUtility;
 
 @WebServlet("/RoleCtl")
@@ -20,6 +21,16 @@ public class RoleCtl extends BaseCtl {
 	@Override
 	protected boolean validate(HttpServletRequest request) {
 		boolean pass = true;
+		if(DataValidator.isNull(request.getParameter("name"))) {
+			request.setAttribute("name", "name is required");
+			pass = false;
+			
+		}else if(!DataValidator.isName(request.getParameter("name"))) {
+			request.setAttribute("name", "name contain only alphabets");
+			pass = false;
+			
+		}
+		
 		return pass;
 	}
 
@@ -28,7 +39,7 @@ public class RoleCtl extends BaseCtl {
 
 		RoleBean bean = new RoleBean();
 		bean.setName(DataUtility.getString(request.getParameter("name")));
-		bean.setDescription(DataUtility.getString(request.getParameter("discription")));
+		bean.setDescription(DataUtility.getString(request.getParameter("description")));
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		return bean;
 	}

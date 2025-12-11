@@ -6,26 +6,25 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+
 <style type="text/css">
 #footer {
 	position: fixed;
 	left: 0;
 	width: 100%;
 	bottom: 0;
-	background-color: grey;
+	background-color: white;
 	color: black;
 	text-align: center;
-	
 }
 </style>
+
+</head>
 <body>
-<div> 
+
+	<div id="footer">
 		<CENTER>
 			<hr>
 			<H3>&copy; Copyrights RAYS Technologies 2025</H3>
 		</CENTER>
 	</div>
-
-</body>
-</html>

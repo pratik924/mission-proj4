@@ -98,6 +98,10 @@
 			</table>
 		</div>
 	</form>
+		
+	
 
 </body>
+<%@ include file="Footer.jsp" %>
+
 </html>

@@ -48,8 +48,10 @@
 			</table>
 		</div>
 	</form>
-	<%@ include file="Footer.jsp" %>
+	
 
 
 </body>
+	<%@ include file="Footer.jsp" %>
+
 </html>

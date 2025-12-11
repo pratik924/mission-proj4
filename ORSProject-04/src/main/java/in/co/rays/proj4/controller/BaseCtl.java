@@ -48,6 +48,7 @@ public  abstract class BaseCtl extends HttpServlet {
 
 		// for input validation
 		protected boolean validate(HttpServletRequest request) {
+			
 			return true;
 		}
 
@@ -75,6 +76,8 @@ public  abstract class BaseCtl extends HttpServlet {
 
 			if (DataValidator.isNotNull(op)) {
 				if (!validate(request)) {
+					BaseBean bean =(BaseBean)populateBean(request);
+					ServletUtility.setBean(bean, request);
 					ServletUtility.forword(getView(), request, response);
 					return;
 				}
