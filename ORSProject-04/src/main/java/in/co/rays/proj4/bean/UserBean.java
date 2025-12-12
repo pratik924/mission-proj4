@@ -84,5 +84,15 @@ public class UserBean extends BaseBean {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+	@Override
+	public String getKey() {
+		// TODO Auto-generated method stub
+		return super.getKey();
+	}
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return super.getValue();
+	}
 
 }

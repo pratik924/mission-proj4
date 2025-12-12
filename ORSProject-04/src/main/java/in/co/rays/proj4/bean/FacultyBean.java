@@ -87,5 +87,15 @@ public class FacultyBean extends BaseBean {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
+	@Override
+	public String getKey() {
+		// TODO Auto-generated method stub
+		return super.getKey();
+	}
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return super.getValue();
+	}
 
 }

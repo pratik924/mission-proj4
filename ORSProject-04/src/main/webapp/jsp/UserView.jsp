@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="in.co.rays.proj4.controller.UserCtl"%>
 <%@page import="in.co.rays.proj4.utill.HTMLUtility"%>
 <%@page import="java.util.HashMap"%>
@@ -12,6 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+List roleList = (List)request.getAttribute("rolelist");
+%>
 <%@ include file="Header.jsp"%>
 	<form action="<%=ORSView.USER_CTL%>" method="post">
 		<jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
@@ -55,12 +59,17 @@
 						placeholder="enter your password"></td>
 					<td><font color="red"><%=ServletUtility.getErrorMessage("password", request)%></font></td>
 				</tr>
+				
 				<tr>
 					<th>Confirm Password</th>
 					<td><input type="password" name="confirmpassword"
 						value="<%=DataUtility.getStringData(bean.getConfirmPassword())%>"
 						placeholder="enter your password"></td>
 					<td><font color="red"><%=ServletUtility.getErrorMessage("confirmpassword", request)%></font></td>
+				</tr>
+				<tr>
+				<th>Role:</th>
+				<td><%=HTMLUtility.getList("roleId", String.valueOf(bean.getRoleId()), roleList)%></td>
 				</tr>
 				<tr>
 					<th>DOB</th>

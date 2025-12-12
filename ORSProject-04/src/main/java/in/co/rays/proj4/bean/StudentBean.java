@@ -59,5 +59,15 @@ public class StudentBean extends BaseBean {
 	public void setCollegeName(String collegeName) {
 		this.collegeName = collegeName;
 	}
+	@Override
+	public String getKey() {
+		// TODO Auto-generated method stub
+		return super.getKey();
+	}
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return super.getValue();
+	}
 
 }

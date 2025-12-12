@@ -71,6 +71,8 @@ public  abstract class BaseCtl extends HttpServlet {
 		protected void service(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
 			System.out.println("in baseCtl service method");
+			
+			preload(request);
 
 			String op = DataUtility.getString(request.getParameter("operation"));
 
