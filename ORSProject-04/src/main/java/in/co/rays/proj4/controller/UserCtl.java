@@ -18,6 +18,7 @@ import in.co.rays.proj4.model.UserModel;
 import in.co.rays.proj4.utill.DataUtility;
 import in.co.rays.proj4.utill.DataValidator;
 import in.co.rays.proj4.utill.ServletUtility;
+
 @WebServlet("/UserCtl")
 public class UserCtl extends BaseCtl {
 	@Override
@@ -26,11 +27,11 @@ public class UserCtl extends BaseCtl {
 		try {
 			List roleList = model.list();
 			request.setAttribute("rolelist", roleList);
-			
+
 		} catch (ApplicationException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -115,8 +116,8 @@ public class UserCtl extends BaseCtl {
 		bean.setConfirmPassword(DataUtility.getString(request.getParameter("confirmpassword")));
 		bean.setGender(DataUtility.getString(request.getParameter("gender")));
 		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
+		bean.setRoleId(DataUtility.getLong(request.getParameter("roleId")));
 		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
-		bean.setRoleId(RoleBean.STUDENT);
 
 		return bean;
 	}
@@ -145,8 +146,8 @@ public class UserCtl extends BaseCtl {
 					ServletUtility.setBean(bean, request);
 					ServletUtility.setSuccessMessage("user added successfully", request);
 				}
-			} catch (  DuplicateRecordException e) {
-				ServletUtility.SetErrorMessage("user already exist", request);
+			} catch (DuplicateRecordException e) {
+				ServletUtility.setErrorMessage("user already exist", request);
 				e.printStackTrace();
 			} catch (ApplicationException e) {
 				// TODO Auto-generated catch block

@@ -38,14 +38,27 @@
 			int pageNo = ServletUtility.getPageNo(request);
 			int pageSize = ServletUtility.getPageSize(request);
 			int index = ((pageNo - 1) * pageSize) + 1;
-			//int nextListSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
-			int nextListSize = DataUtility.getInt(String.valueOf(request.getAttribute("nextListSize")));
+			int nextListSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
+			//int nextListSize = DataUtility.getInt(String.valueOf(request.getAttribute("nextListSize")));
 
 			List<RoleBean> list = (List<RoleBean>) ServletUtility.getList(request);
 			Iterator<RoleBean> it = list.iterator();
 
 			if (list.size() != 0) {
 			%>
+
+			<table>
+				<tr>
+					<th>Role:</th>
+					<td><input type="text" name="name"
+						value="<%=DataUtility.getStringData(bean.getName())%>"
+						placeholder="search by roleName"></td>
+					<td><input type="submit" name="operation"
+						value="<%=RoleListCtl.OP_SEARCH%>"></td>
+
+				</tr>
+			</table>
+
 			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
 				type="hidden" name="pageSize" value="<%=pageSize%>"> <br>
 			<table border="1" style="width: 100%; border: groove;">
@@ -80,6 +93,8 @@
 						value="<%=RoleListCtl.OP_PREVIOUS%>"
 						<%=pageNo > 1 ? "" : "disabled"%>></td>
 					<td align="center" style="width: 25%"><input type="submit"
+						name="operation" value="<%=RoleListCtl.OP_NEW%>"></td>
+					<td align="center" style="width: 25%"><input type="submit"
 						name="operation" value="<%=RoleListCtl.OP_DELETE%>"></td>
 					<td style="width: 25%" align="right"><input type="submit"
 						name="operation" value="<%=RoleListCtl.OP_NEXT%>"
@@ -87,10 +102,8 @@
 				</tr>
 			</table>
 
-			<%
-			}
-			if (list.size() == 0) {
-			%>
+
+			if (list.size() == 0) {%>
 			<table>
 				<tr>
 					<td align="right"><input type="submit" name="operation"
@@ -102,7 +115,6 @@
 			%>
 		</form>
 	</div>
-	<%@ include file="Footer.jsp" %>
-
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

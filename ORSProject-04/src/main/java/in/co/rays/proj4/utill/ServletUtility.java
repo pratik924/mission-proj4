@@ -41,17 +41,17 @@ public class ServletUtility {
 			return val;
 		}
 	}
-
-	public static void SetErrorMessage(String msg, HttpServletRequest request) {
-		request.setAttribute(BaseCtl.MSG_ERROR, msg);
+	public static  void setErrorMessage(String msg, HttpServletRequest request) {
+		request.setAttribute(BaseCtl.MSG_ERROR, request);
 	}
-
 	public static String getErrorMessage(HttpServletRequest request) {
-		String val = (String) request.getAttribute(BaseCtl.MSG_ERROR);
+		String val = (String)request.getAttribute(BaseCtl.MSG_ERROR);
 		if (val == null) {
 			return "";
+			
+			
 		} else {
-			return val;
+        return val;
 		}
 	}
 
@@ -75,6 +75,17 @@ public class ServletUtility {
 	public static BaseBean getBean(HttpServletRequest request) {
 		return (BaseBean) request.getAttribute("bean");
 	}
+		
+		public static String getParameter(String property, HttpServletRequest request) {
+			String val = (String) request.getParameter(property);
+			if (val == null) {
+				return "";
+			} else {
+				return val;
+			}
+		}
+	
+
 	public static void setList(List list, HttpServletRequest request) {
 		request.setAttribute("list", list);
 	}
@@ -99,7 +110,10 @@ public class ServletUtility {
 		return (Integer) request.getAttribute("pageSize");
 	}
 
+	public static void setAttributes(String string, int size) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
-
-
-

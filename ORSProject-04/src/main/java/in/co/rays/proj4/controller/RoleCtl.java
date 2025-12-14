@@ -73,7 +73,12 @@ public class RoleCtl extends BaseCtl {
 					ServletUtility.setBean(bean, request);
 					ServletUtility.setSuccessMessage("role update successfully", request);
 				} else {
-					model.add(bean);
+					try {
+						model.add(bean);
+					} catch (DuplicateRecordException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					ServletUtility.setBean(bean, request);
 					ServletUtility.setSuccessMessage("role add successfully ", request);
 				}

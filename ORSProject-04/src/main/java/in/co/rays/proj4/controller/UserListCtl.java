@@ -1,6 +1,7 @@
 package in.co.rays.proj4.controller;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ public class UserListCtl extends BaseCtl {
 		bean.setPassword(DataUtility.getString(request.getParameter("password")));
 		bean.setGender(DataUtility.getString(request.getParameter("gender")));
 		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
+		bean.setRoleId(DataUtility.getLong(request.getParameter("roleId")));
 		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
 
 		return bean;
@@ -47,7 +49,7 @@ public class UserListCtl extends BaseCtl {
 			List<UserBean> next = model.search(bean, pageNo + 1, pageSize);
 
 			if (list == null || list.isEmpty()) {
-				ServletUtility.SetErrorMessage("No Record found", request);
+				ServletUtility.setErrorMessage("No Record found", request);
 			}
 			ServletUtility.setList(list, request);
 			ServletUtility.setPageNo(pageNo, request);
@@ -64,8 +66,79 @@ public class UserListCtl extends BaseCtl {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List list = null;
+		List next = null;
+		int pageNo = DataUtility.getInt(request.getParameter("pageNo"));
+		int pageSize = DataUtility.getInt(request.getParameter("pageSize"));
+		 
+		pageNo =(pageNo == 0)?1:pageNo;
+		pageSize = 10;
+		
+		UserBean bean  = (UserBean)populateBean(request);
+		UserModel model = new UserModel();
+		
+		String op = DataUtility.getString(request.getParameter("operation"));
+		String[]ids = request.getParameterValues("ids");
+		try {
+			if (OP_SEARCH.equalsIgnoreCase(op) || "next".equalsIgnoreCase(op) || "previous".equalsIgnoreCase(op)) {
+            if (OP_SEARCH.equalsIgnoreCase(op)) {
+            	pageNo = 1;
+				
+			} else if(OP_NEXT.equalsIgnoreCase(op)) {
+				pageNo++;
+				
+				
+
+			}else if(OP_PREVIOUS.equalsIgnoreCase(op)) {
+				pageNo--;
+			}else if(OP_NEW.equalsIgnoreCase(op)) {
+				ServletUtility.redirect(ORSView.USER_CTL, request, response);
+				return;
+			}else if(OP_DELETE.equalsIgnoreCase(op)) {
+				pageNo =1;
+				if (ids != null && ids.length > 0) {
+					UserBean deletebean = new UserBean();
+					for (String id : ids) {
+						deletebean.setId(DataUtility.getLong(id));
+						model.delete(deletebean);
+						deletebean.setId(DataUtility.getInt(id));
+						ServletUtility.setSuccessMessage("data deleted succesfully", request);
+						
+						
+					}
+				}else {
+					ServletUtility.setErrorMessage("Select atleast one id", request);
+				}
+			}
+			}else if(OP_RESET.equalsIgnoreCase(op)){
+				ServletUtility.redirect(ORSView.USER_LIST_CTL, request, response);
+				return;
+				
+			}else if(OP_BACK.equalsIgnoreCase(op)) {
+				ServletUtility.redirect(ORSView.USER_LIST_CTL, request, response);
+				return;
+				
+			}
+			list = model.search(bean, pageNo, pageSize);
+			next = model.search(bean, pageNo, pageSize);
+			if (list == null || list.size() == 0) {
+				ServletUtility.setErrorMessage("no record found", request);
+				
+				
+			}
+			ServletUtility.setList(list, request);
+			ServletUtility.setPageNo(pageNo, request);
+			ServletUtility.setPageSize(pageSize, request);
+			ServletUtility.setBean(bean, request);
+			ServletUtility.setAttributes("nextListSize",next.size());
+			
+			ServletUtility.forword(getView(), request, response);
+			
+		} catch (ApplicationException e) {
+		 e.printStackTrace();
+		 return;
+		}
 	}
 
 	@Override

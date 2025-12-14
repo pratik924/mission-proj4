@@ -12,6 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+	List roleList = (List) request.getAttribute("roleList");
+	%>
 	<%@include file="Header.jsp"%>
 
 	<jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean"
@@ -20,6 +23,8 @@
 	<div align="center">
 		<h1 style="color: navy;">User List</h1>
 		<div style="height: 15px; margin-bottom: 12px">
+
+
 
 			<h3>
 				<font color="red"> <%=ServletUtility.getErrorMessage(request)%>
@@ -43,6 +48,31 @@
 			%>
 			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
 				type="hidden" name="pageSize" value="<%=pageSize%>"><br>
+
+			<tr>
+				<td align="center"><label><b>First Name :</b></label> <input
+					type="text" name="firstName" placeholder="Enter your First Name"
+					value="<%=ServletUtility.getParameter("firstName", request)%>">&emsp;
+
+					<label><b>Login Id:</b></label><input type="text" name="login"
+					placeholder="Enter Email id"
+					value="<%=ServletUtility.getParameter("login", request)%>">&emsp;
+
+					<label><b>Mobile No:</b></label><input type="text" name="mobileNo"
+					placeholder="Enter your Mobile No"
+					value="<%=ServletUtility.getParameter("mobileNo", request)%>">&emsp;
+
+					<label><b>Dob:</b></label><input type="date" name="dob"
+					placeholder="Enter you Dob"
+					value="<%=ServletUtility.getParameter("login", request)%>">&emsp;
+					<input type="submit" name="operation"
+					value="<%=UserListCtl.OP_SEARCH%>"> &nbsp; <input
+					type="submit" name="operation" value="<%=UserListCtl.OP_RESET%>">
+
+
+
+				</td>
+			</tr>
 			<table border="1" style="width: 100%; border: groove;">
 				<tr style="background-color: #e1e6f1e3;">
 					<th>Delete</th>
@@ -53,6 +83,7 @@
 					<th>Password</th>
 					<th>Gender</th>
 					<th>DOB</th>
+					<th>Role</th>
 					<th>MobileNo</th>
 
 				</tr>
@@ -71,6 +102,7 @@
 					<td><%=bean.getPassword()%></td>
 					<td><%=bean.getGender()%></td>
 					<td><%=bean.getDob()%></td>
+					<td><%=bean.getRoleId()%></td>
 					<td><%=bean.getMobileNo()%></td>
 				</tr>
 				<%
@@ -105,10 +137,10 @@
 			%>
 		</form>
 	</div>
-		
-	
+
+
 
 </body>
-<%@ include file="Footer.jsp" %>
+<%@ include file="Footer.jsp"%>
 
 </html>

@@ -130,7 +130,7 @@ public class UserModel {
 		}
 	}
 
-	public void delete(long id) throws ApplicationException {
+	public void delete(long deletebean) throws ApplicationException {
 
 		Connection conn = null;
 
@@ -141,7 +141,7 @@ public class UserModel {
 
 			PreparedStatement pstmt = conn.prepareStatement("delete from st_user where id = ?");
 
-			pstmt.setLong(1, id);
+			pstmt.setLong(1, deletebean);
 
 			int i = pstmt.executeUpdate();
 
@@ -336,6 +336,11 @@ public class UserModel {
 			JDBCDataSource.closeconnection(conn);
 		}
 		return list;
+	}
+
+	public void delete(UserBean deletebean) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

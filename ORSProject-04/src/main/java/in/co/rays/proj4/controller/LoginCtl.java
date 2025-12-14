@@ -20,10 +20,14 @@ import in.co.rays.proj4.utill.ServletUtility;
 
 @WebServlet("/LoginCtl")
 public class LoginCtl extends BaseCtl {
-
+	
 	public static final String OP_SIGN_IN = "Sign In";
-	public static final String OP_SIGN_UP = "Sign Up";
 
+	
+	public static final String OP_SIGN_UP = "Sign Up";
+	
+
+	
 	@Override
 	protected boolean validate(HttpServletRequest request) {
 		boolean pass = true;
@@ -32,14 +36,30 @@ public class LoginCtl extends BaseCtl {
 			return true;
 
 		}
+		
+		
 		if (DataValidator.isNull(request.getParameter("login"))) {
 			request.setAttribute("login", "login is required");
 			pass = false;
 		}
+		else if (!DataValidator.isEmail(request.getParameter("login"))) {
+			request.setAttribute("login", "invalid login formate");
+			pass= false;
+			
+		}
 		if (DataValidator.isNull(request.getParameter("password"))) {
 			request.setAttribute("password", "password is required");
 			pass = false;
+		}else if (!DataValidator.isPasswordLength(request.getParameter("password"))) {
+			request.setAttribute("password", "password length min 8 or max 12");
+			pass = false;
+			
+		}else if (!DataValidator.isPasswordLength(request.getParameter("password"))) {
+			request.setAttribute("password", "password must be in abc@123 format");
+			pass = false;
+			
 		}
+		
 		return pass;
 	}
 
@@ -91,7 +111,7 @@ public class LoginCtl extends BaseCtl {
 					return;
 				} else {
 					System.out.println("Loginn or password is invalid");
-					ServletUtility.SetErrorMessage("login or password is invalid", request);
+					ServletUtility.setErrorMessage("login or password is invalid", request);
 					ServletUtility.forword(getView(), request, response);
 				}
 

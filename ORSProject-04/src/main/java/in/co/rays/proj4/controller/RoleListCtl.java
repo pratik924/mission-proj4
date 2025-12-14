@@ -75,7 +75,7 @@ public class RoleListCtl extends BaseCtl {
 
 					}
 				} else {
-					ServletUtility.SetErrorMessage("select  at least one id", request);
+					ServletUtility.setErrorMessage("select  at least one id", request);
 
 				}
 
@@ -90,7 +90,7 @@ public class RoleListCtl extends BaseCtl {
 			next = model.search(bean, pageNo + 1, pageSize);
 
 			if (list == null || list.size() == 0) {
-				ServletUtility.SetErrorMessage("No record found", request);
+				ServletUtility.setErrorMessage("No record found", request);
 			}
 			ServletUtility.setList(list, request);
 			ServletUtility.setPageNo(pageNo, request);
@@ -122,7 +122,7 @@ public class RoleListCtl extends BaseCtl {
 			List<RoleBean> next = model.search(bean, pageNo+1, pageSize);
 
 			if (list == null || list.isEmpty()) {
-				ServletUtility.SetErrorMessage("No record found", request);
+				ServletUtility.setErrorMessage("No record found", request);
 
 			}
 			ServletUtility.setList(list, request);

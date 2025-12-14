@@ -103,8 +103,9 @@ import in.co.rays.proj4.utill.ServletUtility;
 			bean.setGender(DataUtility.getString(request.getParameter("gender")));
 			bean.setDob(DataUtility.getDate(request.getParameter("dob")));
 			bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
-			bean.setRoleId(RoleBean.STUDENT);
-
+			/*
+			 * bean.setRoleId(RoleBean.STUDENT);
+			 */
 			return bean;
 		}
 
@@ -129,7 +130,7 @@ import in.co.rays.proj4.utill.ServletUtility;
 
 				} catch (DuplicateRecordException e) {
 					ServletUtility.setBean(bean, request);
-					ServletUtility.SetErrorMessage("Login Is Already Exiest", request);
+					ServletUtility.setErrorMessage("Login Is Already Exiest", request);
 				} catch (ApplicationException e) {
 					e.printStackTrace();
 					return;

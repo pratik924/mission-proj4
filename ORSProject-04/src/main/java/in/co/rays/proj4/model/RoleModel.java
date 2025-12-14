@@ -31,9 +31,14 @@ public class RoleModel {
 
 	}
 
-	public long add(RoleBean bean) throws ApplicationException {
+	public long add(RoleBean bean) throws ApplicationException, DuplicateRecordException {
 		Connection conn = null;
 		int pk = 0;
+		RoleBean existBean = findByName(bean.getName());
+		if (existBean != null) {
+			throw new DuplicateRecordException("Role already exists");
+			
+		}
 		try {
 			pk = nextPk();
 			conn = JDBCDataSource.getConnection();
@@ -55,14 +60,14 @@ public class RoleModel {
 				conn.rollback();
 
 			} catch (Exception ex) {
-				throw new ApplicationException("Execption = Exception in add role ");
-
+				throw new ApplicationException("Execption = Exception in add rollback " + ex.getMessage());
+			} throw new ApplicationException("Exception : Exception in add Role");
 			} finally {
 				JDBCDataSource.closeconnection(conn);
 
 			}
 
-		}
+		
 		return pk;
 	}
 
