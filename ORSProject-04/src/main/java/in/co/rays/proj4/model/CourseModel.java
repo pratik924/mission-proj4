@@ -9,7 +9,7 @@ import java.util.List;
 import in.co.rays.proj4.bean.CourseBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
-import in.co.rays.proj4.utill.JDBCDataSource;
+import in.co.rays.proj4.util.JDBCDataSource;
 
 public class CourseModel {
 	public Integer nextPk() throws Exception {

@@ -1,9 +1,8 @@
 package in.co.rays.proj4.exception;
 
-public class DataBaseException extends Exception {
-	public DataBaseException(String msg) {
+public class DatabaseException extends Exception {
+
+	public DatabaseException(String msg) {
 		super(msg);
 	}
-	
-
 }

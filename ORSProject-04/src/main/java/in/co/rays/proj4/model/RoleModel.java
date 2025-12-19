@@ -9,12 +9,12 @@ import java.util.List;
 
 import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.exception.ApplicationException;
-import in.co.rays.proj4.exception.DataBaseException;
+import in.co.rays.proj4.exception.DatabaseException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
-import in.co.rays.proj4.utill.JDBCDataSource;
+import in.co.rays.proj4.util.JDBCDataSource;
 
 public class RoleModel {
-	public int nextPk() throws DataBaseException {
+	public int nextPk() throws DatabaseException {
 		int pk = 0;
 		Connection conn = JDBCDataSource.getConnection();
 		try {

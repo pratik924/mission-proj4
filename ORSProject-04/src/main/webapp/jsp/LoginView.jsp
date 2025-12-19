@@ -1,4 +1,4 @@
-<%@page import="in.co.rays.proj4.utill.ServletUtility"%>
+<%@page import="in.co.rays.proj4.util.ServletUtility"%>
 
 <%@page import="in.co.rays.proj4.controller.LoginCtl"%>
 <%@page import="in.co.rays.proj4.controller.ORSView"%>

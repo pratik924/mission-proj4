@@ -74,7 +74,8 @@ public class TestUserModel {
 	private static void testDelete() throws ApplicationException {
 
 		UserBean bean = new UserBean();
-		model.delete(2L);
+		bean.setId(2);
+		model.delete(bean);
 
 	}
 

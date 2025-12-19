@@ -13,8 +13,8 @@ import in.co.rays.proj4.bean.BaseBean;
 import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.model.UserModel;
-import in.co.rays.proj4.utill.DataUtility;
-import in.co.rays.proj4.utill.ServletUtility;
+import in.co.rays.proj4.util.DataUtility;
+import in.co.rays.proj4.util.ServletUtility;
 
 @WebServlet("/UserListCtl")
 public class UserListCtl extends BaseCtl {
@@ -57,7 +57,7 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forword(getView(), request, response);
+			ServletUtility.forward(getView(), request, response);
 
 		} catch (ApplicationException e) {
 			e.printStackTrace();
@@ -133,7 +133,7 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			ServletUtility.setAttributes("nextListSize",next.size());
 			
-			ServletUtility.forword(getView(), request, response);
+			ServletUtility.forward(getView(), request, response);
 			
 		} catch (ApplicationException e) {
 		 e.printStackTrace();

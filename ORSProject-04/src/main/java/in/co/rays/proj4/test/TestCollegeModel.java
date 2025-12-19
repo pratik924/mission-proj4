@@ -37,11 +37,7 @@ public class TestCollegeModel {
 		bean.setCreatedDatetime(new Timestamp(new Date().getDate()));
 		bean.setModifiedDatetime(new Timestamp(new Date().getDate()));
 
-		try {
-			model.add(bean);
-		} catch (SQLException  e) {
-			e.printStackTrace();
-		}
+		model.add(bean);
 
 	}
 

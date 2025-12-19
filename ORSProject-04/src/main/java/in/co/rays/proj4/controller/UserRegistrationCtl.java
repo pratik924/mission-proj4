@@ -13,9 +13,9 @@ import in.co.rays.proj4.bean.UserBean;
 import in.co.rays.proj4.exception.ApplicationException;
 import in.co.rays.proj4.exception.DuplicateRecordException;
 import in.co.rays.proj4.model.UserModel;
-import in.co.rays.proj4.utill.DataUtility;
-import in.co.rays.proj4.utill.DataValidator;
-import in.co.rays.proj4.utill.ServletUtility;
+import in.co.rays.proj4.util.DataUtility;
+import in.co.rays.proj4.util.DataValidator;
+import in.co.rays.proj4.util.ServletUtility;
 
 @WebServlet("/UserRegistrationCtl")
 	public class UserRegistrationCtl extends BaseCtl {
@@ -112,7 +112,7 @@ import in.co.rays.proj4.utill.ServletUtility;
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
-			ServletUtility.forword(getView(), request, response);
+			ServletUtility.forward(getView(), request, response);
 
 		}
 
@@ -135,7 +135,7 @@ import in.co.rays.proj4.utill.ServletUtility;
 					e.printStackTrace();
 					return;
 				}
-				ServletUtility.forword(getView(), request, response);
+				ServletUtility.forward(getView(), request, response);
 			} else if (OP_RESET.equalsIgnoreCase(op)) {
 				ServletUtility.redirect(ORSView.USER_REGISTRATION_CTL, request, response);
 				return;
