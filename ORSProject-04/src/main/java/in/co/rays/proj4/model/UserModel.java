@@ -18,8 +18,8 @@ import in.co.rays.proj4.util.EmailUtility;
 import in.co.rays.proj4.util.JDBCDataSource;
 
 /**
- * UserModel handles all database operations related to User entity such as
- * add, update, delete, find, authenticate, etc.
+ * UserModel handles all database operations related to User entity such as add,
+ * update, delete, find, authenticate, etc.
  *
  * This class uses JDBC for interaction with the database and supports
  * operations like registration, password change, and password recovery.
@@ -112,13 +112,13 @@ public class UserModel {
 		return pk;
 	}
 
-	
 	/**
 	 * Updates an existing user in the database.
 	 *
 	 * @param bean the UserBean containing updated user details
-	 * @throws DuplicateRecordException if the login ID already exists for another user
-	 * @throws ApplicationException if an application-level exception occurs
+	 * @throws DuplicateRecordException if the login ID already exists for another
+	 *                                  user
+	 * @throws ApplicationException     if an application-level exception occurs
 	 */
 	public void update(UserBean bean) throws DuplicateRecordException, ApplicationException {
 
@@ -289,7 +289,7 @@ public class UserModel {
 	/**
 	 * Authenticates a user using login and password.
 	 *
-	 * @param login the login ID
+	 * @param login    the login ID
 	 * @param password the password
 	 * @return UserBean if credentials are correct, otherwise null
 	 * @throws ApplicationException if an application-level exception occurs
@@ -336,8 +336,8 @@ public class UserModel {
 	/**
 	 * Searches users based on criteria and pagination.
 	 *
-	 * @param bean the UserBean containing search criteria
-	 * @param pageNo the page number
+	 * @param bean     the UserBean containing search criteria
+	 * @param pageNo   the page number
 	 * @param pageSize the number of records per page
 	 * @return list of matching users
 	 * @throws ApplicationException if an application-level exception occurs
@@ -418,12 +418,12 @@ public class UserModel {
 	/**
 	 * Changes the password of a user.
 	 *
-	 * @param id the user ID
+	 * @param id          the user ID
 	 * @param oldPassword the current password
 	 * @param newPassword the new password
 	 * @return true if password changed successfully, false otherwise
 	 * @throws RecordNotFoundException if old password is invalid
-	 * @throws ApplicationException if an application-level exception occurs
+	 * @throws ApplicationException    if an application-level exception occurs
 	 */
 	public boolean changePassword(Long id, String oldPassword, String newPassword)
 			throws RecordNotFoundException, ApplicationException {
@@ -469,7 +469,7 @@ public class UserModel {
 	 * @param login the login ID (email)
 	 * @return true if email sent successfully
 	 * @throws RecordNotFoundException if login ID does not exist
-	 * @throws ApplicationException if an application-level exception occurs
+	 * @throws ApplicationException    if an application-level exception occurs
 	 */
 	public boolean forgetPassword(String login) throws RecordNotFoundException, ApplicationException {
 
@@ -509,7 +509,7 @@ public class UserModel {
 	 * @param bean the UserBean containing user details
 	 * @return primary key of the newly registered user
 	 * @throws DuplicateRecordException if login ID already exists
-	 * @throws ApplicationException if an application-level exception occurs
+	 * @throws ApplicationException     if an application-level exception occurs
 	 */
 	public long registerUser(UserBean bean) throws DuplicateRecordException, ApplicationException {
 
@@ -520,7 +520,7 @@ public class UserModel {
 		map.put("password", bean.getPassword());
 
 		String message = EmailBuilder.getUserRegistrationMessage(map);
-
+		System.out.println("Send mail ");
 		EmailMessage msg = new EmailMessage();
 
 		msg.setTo(bean.getLogin());

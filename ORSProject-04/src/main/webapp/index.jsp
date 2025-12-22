@@ -3,15 +3,15 @@
 <head>
 <title>Online Result System</title>
 <link rel="icon" type="image/png"
-	href="<%=ORSView.APP_CONTEXT%>/img/logo.png" sizes="16x16" />
+	href="<%=ORSView.APP_CONTEXT%>/img/raysLogo.jpg" sizes="16x16" />
 </head>
 <body>
 	<br>
 	<br>
 	<marquee behavior="alternate" scrollamount="300" loop="1">
 		<div align="center">
-			<img src="" align="middle" width="318" height="127"
-				border="0">
+			<img src="<%=ORSView.APP_CONTEXT%>/img/raysLogo.jpg" " align="middle"
+				width="318" height="127" border="0">
 		</div>
 	</marquee>
 
