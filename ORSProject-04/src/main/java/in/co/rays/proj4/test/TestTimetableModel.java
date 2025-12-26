@@ -13,11 +13,11 @@ public class TestTimetableModel {
 	private static TimetableModel model = new TimetableModel();
 
 	public static void main(String[] args) throws Exception {
-		 testAdd();
+		// testAdd();
 		// testUpdate();
 		// testDelete();
 		// testFindByPk();
-		//testSearch();
+		testSearch();
 	}
 
 	private static void testAdd() throws Exception {
@@ -57,7 +57,8 @@ public class TestTimetableModel {
 
 	private static void testDelete() throws Exception {
 		TimetableBean bean = new TimetableBean();
-		model.delete(2L);
+		bean.setId(2l);
+		model.delete(bean);
 
 	}
 
@@ -103,5 +104,4 @@ public class TestTimetableModel {
 
 		}
 	}
-
 }

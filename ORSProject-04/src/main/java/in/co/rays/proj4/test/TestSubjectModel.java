@@ -5,20 +5,21 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import in.co.rays.proj4.bean.CourseBean;
+import in.co.rays.proj4.bean.StudentBean;
 import in.co.rays.proj4.bean.SubjectBean;
 import in.co.rays.proj4.model.SubjectModel;
 
 public class TestSubjectModel {
-	
 	private static SubjectModel model = new SubjectModel();
 
 	public static void main(String[] args) throws Exception {
-		 testAdd();
+		// testAdd();
 		// testUpdate();
 		// testDelete();
 		// testFindByPk();
 		// testFindByName();
-		//testSearch();
+		testSearch();
 	}
 
 	private static void testAdd() throws Exception {
@@ -26,7 +27,7 @@ public class TestSubjectModel {
 		bean.setId(1L);
 		bean.setName("Physics");
 		bean.setCourseId(1L);
-		bean.setDescription("physics is ");
+		bean.setDescription("kuch nahi ");
 		bean.setCreatedBy("root");
 		bean.setModifiedBy("root");
 		bean.setCreatedDatetime(new Timestamp(new Date().getDate()));
@@ -51,7 +52,8 @@ public class TestSubjectModel {
 
 	private static void testDelete() throws Exception {
 		SubjectBean bean = new SubjectBean();
-		model.delete(2l);
+		bean.setId(2l);
+		model.delete(bean);
 
 	}
 
@@ -108,5 +110,4 @@ public class TestSubjectModel {
 			System.out.println("\t" + bean.getModifiedDatetime());
 		}
 	}
-
 }

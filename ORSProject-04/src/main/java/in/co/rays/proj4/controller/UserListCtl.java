@@ -131,7 +131,7 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.setPageNo(pageNo, request);
 			ServletUtility.setPageSize(pageSize, request);
 			ServletUtility.setBean(bean, request);
-			ServletUtility.setAttributes("nextListSize",next.size());
+			request.setAttribute("nextListSize", next.size());
 			
 			ServletUtility.forward(getView(), request, response);
 			

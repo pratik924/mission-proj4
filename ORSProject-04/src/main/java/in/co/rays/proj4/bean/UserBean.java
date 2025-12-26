@@ -3,6 +3,7 @@ package in.co.rays.proj4.bean;
 import java.util.Date;
 
 public class UserBean extends BaseBean {
+	
 	private String firstName;
 	private String lastName;
 	private String login;
@@ -84,15 +85,16 @@ public class UserBean extends BaseBean {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-	@Override
+
 	public String getKey() {
 		// TODO Auto-generated method stub
-		return super.getKey();
+		return null;
 	}
-	@Override
+
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return super.getValue();
+		return null;
 	}
+	
 
 }

@@ -64,8 +64,8 @@ public class UserRegistrationCtl extends BaseCtl {
 		if (DataValidator.isNull(request.getParameter("confirmpassword"))) {
 			request.setAttribute("confirmpassword", "confirmpassword Is Required");
 			pass = false;
-		} else if (!(request.getParameter("confirmpassword").equals(request.getParameter("confirmpassword")))) {
-			request.setAttribute("confirmpassword", "password and confirm password mudt be equals");
+		} else if (!(request.getParameter("password").equals(request.getParameter("confirmpassword")))) {
+			request.setAttribute("confirmpassword", "password and confirm password must be equals");
 			pass = false;
 		}
 

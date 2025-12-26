@@ -61,11 +61,11 @@ public class HTMLUtility {
 
 	public static void testGetListByMap() {
 
-		HashMap<String, String> map = new HashMap();
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("male", "male");
 		map.put("female", "female");
 
-		String selectedValue = "male";
+		String selectedValue = null;
 		String htmlSelectFromMap = HTMLUtility.getList("gender", selectedValue, map);
 
 		System.out.println(htmlSelectFromMap);

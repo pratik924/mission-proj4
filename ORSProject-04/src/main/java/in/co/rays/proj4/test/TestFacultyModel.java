@@ -7,40 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 
 import in.co.rays.proj4.bean.FacultyBean;
-import in.co.rays.proj4.bean.TimetableBean;
 import in.co.rays.proj4.model.FacultyModel;
 
 public class TestFacultyModel {
 	private static FacultyModel model = new FacultyModel();
 
 	public static void main(String[] args) throws Exception {
-		testAdd();
+		// testAdd();
 		// testUpdate();
 		// testDelete();
 		// testFindByPk();
 		// testFindByEmail();
-		// testSearch();
+		testSearch();
 	}
 
 	private static void testAdd() throws Exception {
 		FacultyBean bean = new FacultyBean();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		bean.setId(1L);
-		bean.setFirstName("yash");
-		bean.setLastName("Parihar");
-		bean.setDob(sdf.parse("2002-05-15"));
+		bean.setFirstName("Rahul");
+		bean.setLastName("Mewada");
+		bean.setDob(sdf.parse("12-03-11"));
 		bean.setGender("Male");
-		bean.setMobileNo("8889994488");
-		bean.setEmail("yash@gmail.com");
+		bean.setMobileNo("7000964865");
+		bean.setEmail("");
 		bean.setCollegeId(1L);
 		bean.setCourseId(1L);
 		bean.setSubjectId(1L);
 		bean.setCreatedBy("root");
 		bean.setModifiedBy("root");
-		bean.setModifiedDatetime(new Timestamp(new Date().getDate()));
+		bean.setCreatedDatetime(new Timestamp(new Date().getDate()));
 		bean.setModifiedDatetime(new Timestamp(new Date().getDate()));
 		model.add(bean);
-		;
 
 	}
 
@@ -48,12 +46,12 @@ public class TestFacultyModel {
 		FacultyBean bean = new FacultyBean();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		bean.setId(1L);
-		bean.setFirstName("yash");
-		bean.setLastName("Parihar");
-		bean.setDob(sdf.parse("2002-05-15"));
+		bean.setFirstName("Rahul");
+		bean.setLastName("Mewada");
+		bean.setDob(sdf.parse("1999-03-11"));
 		bean.setGender("Male");
-		bean.setMobileNo("8889994488");
-		bean.setEmail("yash@gmail.com");
+		bean.setMobileNo("7000964865");
+		bean.setEmail("rahul@gmail.com");
 		bean.setCollegeId(1L);
 		bean.setCourseId(1L);
 		bean.setSubjectId(1L);
@@ -67,7 +65,8 @@ public class TestFacultyModel {
 
 	private static void testDelete() throws Exception {
 		FacultyBean bean = new FacultyBean();
-		model.delete(2);
+		bean.setId(2l);
+		model.delete(bean);
 
 	}
 
@@ -97,7 +96,7 @@ public class TestFacultyModel {
 
 	private static void testFindByEmail() throws Exception {
 		FacultyBean bean = new FacultyBean();
-		bean = model.findByEmail("yash@gmail.com");
+		bean = model.findByEmail("rahul@gmail.com");
 		if (bean != null) {
 			System.out.print(bean.getId());
 			System.out.print("\t" + bean.getFirstName());
@@ -125,8 +124,8 @@ public class TestFacultyModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		List<FacultyBean> list = model.search(bean, 0, 0);
 		Iterator<FacultyBean> it = list.iterator();
-		// bean.setFirstName("Yash");
-		// bean.setDob(sdf.parse("2002-05-15"));
+		// bean.setFirstName("rahul");
+		// bean.setDob(sdf.parse("1999-03-11"));
 		while (it.hasNext()) {
 
 			bean = it.next();
@@ -147,5 +146,4 @@ public class TestFacultyModel {
 
 		}
 	}
-
 }

@@ -1,6 +1,7 @@
 package in.co.rays.proj4.bean;
 
 public class SubjectBean extends BaseBean {
+
 	private String name;
 	private long courseId;
 	private String courseName;
@@ -26,7 +27,7 @@ public class SubjectBean extends BaseBean {
 		return courseName;
 	}
 
-	public void setCourseName(String curseName) {
+	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
 
@@ -37,17 +38,11 @@ public class SubjectBean extends BaseBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@Override
 	public String getKey() {
-		// TODO Auto-generated method stub
-		return super.getKey();
+		return id + "";
 	}
-	@Override
+
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return super.getValue();
+		return name;
 	}
-
-	
-
 }
