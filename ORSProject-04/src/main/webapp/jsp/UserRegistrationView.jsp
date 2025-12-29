@@ -89,11 +89,14 @@
 						placeholder="enter your mobileNo"></td>
 					<td><font color="red"><%=ServletUtility.getErrorMessage("mobileNo", request)%></font></td>
 				</tr>
-				<tr>
-					<th></th>
+					<tr>
+					<td></td>
 					<td><input type="submit" name="operation"
-						value="<%=UserRegistrationCtl.OP_SIGN_UP%>"
-						placeholder="enter your mobileno"></td>
+						value="<%=UserRegistrationCtl.OP_SIGN_UP%>">
+						<input type="submit" name="operation"
+						value="<%=UserRegistrationCtl.OP_RESET%>"
+						
+						></td>
 				</tr>
 			</table>
 		</div>
