@@ -17,6 +17,10 @@ import in.co.rays.proj4.util.DataUtility;
 import in.co.rays.proj4.util.DataValidator;
 import in.co.rays.proj4.util.ServletUtility;
 
+/**
+ * @author Pratik Singh Parihar
+ *
+ */
 @WebServlet("/UserRegistrationCtl")
 public class UserRegistrationCtl extends BaseCtl {
 

@@ -27,7 +27,7 @@ public class TestStudentmodel {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		StudentBean bean = new StudentBean();
 		bean.setFirstName("pratik");
-		bean.setLastName("singh");
+		bean.setLastName("Pratik Pratik Singh Parihar Parihar");
 		bean.setDob(sdf.parse("2003-12-15"));
 		bean.setGender("Male");
 		bean.setMobileNo("988766666");
@@ -46,7 +46,7 @@ public class TestStudentmodel {
 		StudentBean bean = new StudentBean();
 		bean.setId(1);
 		bean.setFirstName("pratik");
-		bean.setLastName("singh");
+		bean.setLastName("Pratik Pratik Singh Parihar Parihar");
 		bean.setDob(sdf.parse("2002-09-30"));
 		bean.setGender("Male");
 		bean.setMobileNo("988766666");

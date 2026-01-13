@@ -15,6 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import in.co.rays.proj4.util.ServletUtility;
 
+/**
+ * @author Pratik Singh Parihar
+ *
+ */
 @WebFilter(filterName = "FrontCtl", urlPatterns = { "/ctl/*", "/doc/*" })
 public class FrontCtl implements Filter {
 

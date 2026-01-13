@@ -93,6 +93,11 @@
 
 	<a href="<%=ORSView.TIMETABLE_CTL%>"><b>Add Timetable</b></a> |
 	<a href="<%=ORSView.TIMETABLE_LIST_CTL%>"><b>Timetable List</b></a> |
+	
+	
+	<a href="<%=ORSView.JAVA_DOC%>" target="blank"><b>Java Doc</b></a> |
+	
+	
 
 	<%
 		}

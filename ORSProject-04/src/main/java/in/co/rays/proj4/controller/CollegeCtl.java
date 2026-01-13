@@ -1,6 +1,7 @@
 package in.co.rays.proj4.controller;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -18,6 +19,10 @@ import in.co.rays.proj4.util.DataValidator;
 import in.co.rays.proj4.util.PropertyReader;
 import in.co.rays.proj4.util.ServletUtility;
 
+/**
+ * @author Pratik Singh Parihar
+ *
+ */
 @WebServlet(name = "CollegeCtl", urlPatterns = { "/ctl/CollegeCtl" })
 public class CollegeCtl extends BaseCtl {
 	@Override
@@ -151,9 +156,9 @@ public class CollegeCtl extends BaseCtl {
 		ServletUtility.forward(getView(), request, response);
 	}
 
-@Override
-public String getView() {
-	
-	return ORSView.COLLEGE_VIEW;
-}
+	@Override
+	public String getView() {
+
+		return ORSView.COLLEGE_VIEW;
+	}
 }

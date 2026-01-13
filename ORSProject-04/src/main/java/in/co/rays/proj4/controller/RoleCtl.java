@@ -19,6 +19,10 @@ import in.co.rays.proj4.util.ServletUtility;
 
 
 
+/**
+ * @author Pratik Singh Parihar
+ *
+ */
 @WebServlet(name = "RoleCtl", urlPatterns = { "/ctl/RoleCtl" })
 public class RoleCtl extends BaseCtl {
 
