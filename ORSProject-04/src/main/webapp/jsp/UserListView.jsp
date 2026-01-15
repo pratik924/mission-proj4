@@ -83,8 +83,8 @@
 					<th width="10%">Mobile No</th>
 					<th width="8%">Gender</th>
 					<th width="10%">Date of Birth</th>
-					<th width="8%">Role</th>
-					<th width="5%">Edit</th>
+<!-- 					<th width="8%">Role</th>
+ -->					<th width="5%">Edit</th>
 				</tr>
 
 				<%
@@ -109,8 +109,8 @@
 					<td style="text-align: center;"><%=bean.getMobileNo()%></td>
 					<td style="text-align: center; text-transform: capitalize;"><%=bean.getGender()%></td>
 					<td style="text-align: center;"><%=date%></td>
-					<td style="text-align: center; text-transform: capitalize;"><%=roleBean.getName()%></td>
-					<td style="text-align: center;"><a
+<%-- 					<td style="text-align: center; text-transform: capitalize;"><%=roleBean.getName()%></td>
+ --%>					<td style="text-align: center;"><a
 						href="UserCtl?id=<%=bean.getId()%>"
 						<%=(user.getId() == bean.getId() || bean.getRoleId() == RoleBean.ADMIN)
 							? "onclick='return false;'"
